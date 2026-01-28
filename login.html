@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .container {
+        width: 100%;
+        max-width: 380px;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 14px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+        letter-spacing: 1px;
+    }
+
+    .field {
+        position: relative;
+        margin-bottom: 22px;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        border: 1.5px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        transition: all 0.3s ease;
+        background: #fafafa;
+    }
+
+    input:focus {
+        border-color: #667eea;
+        background: #ffffff;
+        box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+    }
+
+    .password-box span {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 16px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+    .password-box span:hover {
+        opacity: 1;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .signup {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #555;
+    }
+
+    .signup a {
+        text-decoration: none;
+        color: #667eea;
+        font-weight: bold;
+        transition: color 0.2s;
+    }
+
+    .signup a:hover {
+        color: #764ba2;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Sign In</h2>
+
+    <div class="field">
+        <input type="email" placeholder="Email" required>
+    </div>
+
+    <div class="field password-box">
+        <input type="password" id="password" placeholder="Password" required>
+        <span onclick="togglePassword()">👁</span>
+    </div>
+
+    <button>Login</button>
+
+    <div class="signup">
+        Don’t have an account?
+        <a href="signup.html">Sign Up</a>
+    </div>
+</div>
+
+<script>
+    function togglePassword() {
+        const pass = document.getElementById("password");
+        pass.type = pass.type === "password" ? "text" : "password";
+    }
+</script>
+
+</body>
+</html>
