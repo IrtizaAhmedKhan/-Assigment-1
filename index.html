@@ -1,0 +1,174 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #5c4e4e, #5e3f55ec);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            /* background-size: 100% 100%; */
+            background-image: url(data:image/jpeg;base64,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)
+        }
+
+        .calculator {
+            border: 1px solid #717377;
+            padding: 21px;
+            border-radius: 16px;
+            background: transparent;
+            box-shadow: 0 4px 17px rgba(133, 115, 119, 0.5);
+        }
+
+        input {
+            width: 320px;
+            border: none;
+            outline: none;
+            padding: 24px;
+            margin: 10px;
+            background: transparent;
+            color: #ffffffc1;
+            box-shadow: 0 3px 15px rgba(84, 84, 84, 0.1);
+            font-size: 40px;
+            text-align: right;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: #fff;
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            border: none;
+            border-radius: 50%;
+            background: transparent;
+            color: #ffffffd3;
+            font-size: 20px;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+
+        .equalBtn {
+            background: rgba(231, 164, 41, 0.746);
+        }
+
+        .operator {
+            color: #68e276;
+        }
+
+        h1 {
+            color: rgb(225, 232, 235);
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            border-bottom: 1px solid black;
+            box-shadow: 0px 3px 3px 0px rgba(187, 206, 216, 0.663);
+            letter-spacing: 4px;
+
+            /* space between heading & calculator */
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1>Calculator</h1>
+
+    <div class="calculator">
+        <input type="text" placeholder="0" id="inputBox">
+        <div>
+            <button class="operator">AC</button>
+            <button class="operator">DEL</button>
+            <button class="operator">%</button>
+            <button class="operator">/</button>
+        </div>
+
+        <div>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="operator">*</button>
+        </div>
+
+        <div>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="operator">-</button>
+        </div>
+
+        <div>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="operator">+</button>
+        </div>
+
+        <div>
+            <button>00</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="equalBtn">=</button>
+        </div>
+    </div>
+
+    <script>
+        let input = document.getElementById('inputBox');
+        let buttons = document.querySelectorAll('button');
+
+        // Emty string for result store execute on input 
+        let string = "";
+        let arr = Array.from(buttons);
+        arr.forEach(button => {
+            button.addEventListener('click', (e) => {
+                if (e.target.innerHTML == '=') {
+                    string = eval(string);
+                    input.value = string;
+                }
+
+                else if (e.target.innerHTML == 'AC') {
+                    string = "";
+                    input.value = string;
+                }
+
+                else if (e.target.innerHTML == 'DEL') {
+                    string = string.substring(0, string.length - 1);
+                    input.value = string;
+                }
+
+                else {
+                    string += e.target.innerHTML;
+                    input.value = string;
+                }
+            });
+        }); 
+    </script>
+</body>
+
+</html>
+
+
+
+
